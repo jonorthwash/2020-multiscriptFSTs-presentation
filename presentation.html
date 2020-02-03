@@ -1,0 +1,150 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Multi-script morphological transducers and transcribers for seven Turkic languages</title>
+
+		<meta name="description" content="Multi-script morphological transducers and transcribers for seven Turkic languages">
+		<meta name="author" content="Jonathan North Washington and Francis M. Tyers and Oğuzhan Kuyrukçu">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- , maximum-scale=1.0, user-scalable=no" -->
+
+		<link rel="stylesheet" href="./reveal.js/css/reset.css">
+		<link rel="stylesheet" href="./reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="./reveal.js/css/theme/league.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? './reveal.js/css/print/pdf.css' : './reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<link rel="stylesheet" href="jnw-overrides.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<section id="title" data-state="no-toc-progress">
+					<style>.header1 header:after { content: "Header 1 Example"; }</style>
+					<h1><div style="margin-bottom: 0.5em !important ;">Multi-script morphological transducers and transcribers for seven Turkic languages</div></h1>
+					<div style="padding-top:0.5in; padding-bottom: 0.5in;">
+						<h3><b>Jonathan N. Washington</b>¹ · Francis M. Tyers² · Oğuzhan Kuyrukçu³</h3>
+						<ol>
+							<li>Swarthmore College, USA</li>
+							<li>Indiana University, USA; Высшая Школа Экономики, Москва</li>
+							<li>Boğaziçi Üniversitesi, İstanbul</li>
+						</ol>
+						<!-- img src="figures/swarthmorelogowhite.svg" style="width: 30%"/ -->
+						<img class="noframe" src="img/swarthmorelogowhite.svg" style="height: 5em;"/>
+						<img class="noframe" src="img/iu_trident_web_crimson.svg" style="height: 5em;"/>
+						<img class="noframe" src="img/logo_hse.svg" style="height: 5em;"/>
+						<img class="noframe" src="img/Boğaziçi_University_logo.svg" style="height: 5em;"/>
+						<img class="noframe" src="img/Apertium_logo_darkbg.svg" style="height: 5em;"/>
+					</div>
+				</section>
+
+				<!-- section data-background="img/hargle.svg" data-background-size="contain"></section -->
+
+				<section>
+					<h2>Overview</h2>
+					<div class="box">
+						We are working to <span class="highlight-cyan">augment morphological transducers</span> for <span class="highlight-cyan">7 Turkic languages</span> with support for <span class="highlight-cyan">multiple orthographies</span> and IPA transcription systems.
+					</div>
+					<p>The next ~18 minutes:</p>
+					<ul>
+						<li><span class="highlight">What</span> does that even mean?</li>
+						<li>Motivation (<span class="highlight">why</span>)</li>
+						<li><span class="highlight">How</span> it works</li>
+						<li>Evaluation</li>
+						<li>Future work</li>
+					</ul>
+				</section>
+
+			</div>
+		</div>
+
+		<!-- script src="./reveal.js/lib/js/head.min.js"></script -->
+		<script src="./reveal.js/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				history: true,
+				hash: true,
+
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 1280, //960,
+				//height: 720, //700,
+				height: 1024,
+				//width: 960,
+				//height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.0,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				// transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Shows the slide number using default formatting
+				//Reveal.configure({ slideNumber: true });
+				//slideNumber: true,
+
+				// Slide number formatting can be configured using these variables:
+				//  "h.v":  horizontal . vertical slide number (default)
+				//  "h/v":  horizontal / vertical slide number
+				//    "c":  flattened slide number
+				//  "c/t":  flattened slide number / total slides
+				//Reveal.configure({ slideNumber: 'c' });
+				slideNumber: 'c',
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional reveal.js plugins
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: './reveal.js/plugin/highlight/highlight.js' },
+					{ src: './reveal.js/plugin/search/search.js', async: true },
+					{ src: './reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: './reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

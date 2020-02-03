@@ -1,0 +1,367 @@
+h1 {
+	font-family: "Trebuchet MS", "Attentica 4F", "League Gothic", Impact, sans-serif !important ;
+}
+h2 {
+	font-family: "Trebuchet MS", "Attentica 4F", "League Gothic", Impact, sans-serif !important ;
+	font-size: 1.5em !important ;
+}
+.instructions {
+	text-align: right;
+	font-weight: bold !important ;
+}
+.matin {
+	text-align: left;
+	color: #eee8d5;
+	/* size: 90%; */
+	font-size: 130% !important;
+}
+.sourcenotes {
+	font-size: 70% !important ;
+	text-align: right;
+	font-style: italic !important ;
+}
+li.sentence {
+	font-size: 150%;
+	margin-bottom: 1em;
+	color: #eee8d5;
+	word-spacing: 4pt;
+	list-style-type: none;
+}
+p {
+	word-spacing: 4pt;
+}
+#title h1 {
+	font-size: 2.2em !important ;
+	text-transform: none !important ;
+	font-variant: small-caps !important;
+}
+#title h3 {
+	text-transform: none !important ;
+}
+#title h4 {
+	text-transform: none !important ;
+	font-family: "Trebuchet MS", "Attentica 4F", "League Gothic", Impact, sans-serif !important ;
+}
+.ipa {
+	font-family: Arial !important;
+}
+.highlight-red {
+	/* color: red; */
+	color: #e05b58;
+}
+.highlight-green {
+	color: lightgreen;
+}
+bb {
+	font-weight: bold ;
+	color: lightgreen ;
+}
+.highlight-cyan {
+	color: cyan;
+}
+.highlight {
+	/* color: #bbd; */
+	color: #eea;
+}
+.highlight2 {
+	color: #eea;
+	text-shadow: 2px 2px lightgreen;
+}
+tr.greyedout td {
+	color: #666;
+}
+.dashedul {
+	border-bottom: 2px dashed !important ;
+	text-decoration: none;
+}
+.solidul {
+	border-bottom: 2px solid !important ;
+	text-decoration: none;
+}
+sub {
+	font-size: 80% !important;
+}
+table tr.Vfront th {
+	color: cyan;
+}
+table tr.Vback th {
+	/* color: red; */
+	color: #e05b58;
+}
+table tr td {
+	color: white;
+	font-family: Arial !important;
+	font-size: 225% !important;
+}
+table tr th {
+	color: white;
+	text-align: center !important;
+	vertical-align: middle !important ;
+	font-size: 225% !important;
+}
+table tbody tr:last-child {
+	border-bottom: 1px solid white;
+}
+table.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+table.shrink tr {
+	padding: 0px;
+	height: 15px;
+}
+table.shrink tr td {
+	font-size: 170% !important;
+	padding: -3px;
+	padding-right: 8pt;
+}
+
+table.shrink tr th {
+	font-size: 170% !important;
+	padding: -3px;
+	padding-right: 8pt;
+	vertical-align: bottom ;
+}
+
+.raln {
+	text-align: right !important ;
+}
+
+.laln {
+	text-align: left !important ;
+}
+
+.caln {
+	text-align: center !important ;
+}
+
+table.raln tr td {
+	text-align: right !important ;
+}
+
+table.numbers tr td {
+	text-align: right ;
+}
+
+ul.bibliography {
+	font-size: 75%;
+	line-height: 1.3em;
+}
+ul.bibliography li {
+	padding-left: 2em;
+	text-indent: -2em;
+	list-style-type: none;
+}
+.gmk {
+	font-variant: small-caps !important;
+}
+aside ul li {
+	font-size: 60% !important;
+}
+
+h1 {
+	line-height: 0.95 !important;
+}
+img.noframe {
+	border: 0px !important ;
+	box-shadow: none !important ;
+	background: none !important ;
+}
+.slide-number-a {
+	font-size: 200% !important ;
+}
+
+.citation {
+	font-size: 75% !important ;
+}
+
+/* example */
+ex {
+	color: lightgreen ;
+	font-style: italic;
+	/* font-weight: bold ; */
+}
+ex.white {
+	color: white !important ;
+}
+
+/* gloss */
+gl {
+	/* color: silver ; */
+	color: white ;
+	-webkit-filter: brightness(80%); /* Safari 6.0 - 9.0 */
+	filter: brightness(80%);
+	font-style: italic ;
+}
+gl::before {
+	content: "‘" ;
+}
+gl::after {
+	content: "’" ;
+}
+
+tag {
+	font-size: 0.8em !important;
+	pinkpink ;
+}
+tag::before {
+	content: "<";
+	color: silver !important ;
+}
+tag::after {
+	content: ">";
+	color: silver !important ;
+}
+
+tagc::before {
+	content: "%<";
+	color: silver !important ;
+}
+tagc::after {
+	content: "%>";
+	color: silver !important ;
+}
+
+archc::before {
+	content: "%{";
+	color: silver !important ;
+}
+archc::after {
+	content: "%}";
+	color: silver !important ;
+}
+
+arch::before {
+	content: "{";
+	color: silver !important ;
+}
+arch::after {
+	content: "}";
+	color: silver !important ;
+}
+
+
+
+/* ungrammatical glosses and examples */
+ex.bad::before {
+	content: "*" ;
+}
+
+gl.bad::before {
+	content: "*‘" ;
+}
+
+.bad {
+	/* color: #e05b58; */
+	/* color: #ed605d; */
+	color: #ff6764 ;
+}
+
+/* morpheme highlighting */
+
+morph {
+	text-decoration: underline ;
+}
+
+/* language label */
+lg::before {
+	content: "(" ;
+}
+
+lg::after {
+	content: ")" ;
+}
+
+lg {
+	font-size: 60% ;
+	vertical-align: super ;
+	-webkit-filter: brightness(70%); /* Safari 6.0 - 9.0 */
+	filter: brightness(70%);
+}
+
+table.nolines tr td {
+	border-bottom: none;
+}
+
+table.nolines tbody tr:last-child {
+	border-bottom: none;
+}
+
+.box {
+	border: 2pt solid lightgreen !important ;
+	padding: 10pt !important ;
+	margin: 1em !important ;
+}
+
+.rot90 {
+	text-align: center !important ;
+	white-space: nowrap ;
+	vertical-align: middle !important ;
+	width: 1.5em;
+}
+
+.rot90 div {
+	-ms-transform: rotate(-90deg); /* IE 9 */
+	-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+	transform: rotate(-90deg) ;
+	/* Magic Numbers */
+	/**    translate(25px, 51px) ; **/
+	filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+	margin-left: -2.75em;
+	margin-right: -2.75em;
+}
+
+tt {
+	font-family: monospace !important ;
+	font-size: 90% !important ;
+	/* color: #e05b58; */
+	color: #ccc;
+	background-color: #505050;
+	border: 1px solid black;
+	border-radius: 2px;
+	padding: 1px 4px;
+}
+
+.code {
+	border: 2px solid silver !important ;
+	background-color: #111 ;
+	padding: 0.2em !important;
+	text-align: left ;
+	font-family: "DejaVu Sans Mono", "Liberation Mono", monospace !important ;
+	font-size: 90% !important ;
+	color: #fff;
+	line-height: 0.975 !important;
+	border-radius: 5px;
+}
+
+
+.small {
+	font-size: 67% !important ;
+	line-height: 0.95 !important;
+	display: inline-block !important ;
+}
+
+.codeblock {
+	border: 2px solid silver !important ;
+	background-color: #555 ;
+	padding: 0.5em !important;
+	text-align: left ;
+	font-family: "DejaVu Sans Mono", "Liberation Mono", monospace !important ;
+	font-size: 80% !important ;
+	color: #6f6;
+	line-height: 0.975 !important;
+}
+
+.cyrillic {
+	/** font-family: "Trebuchet MS", "Attentica 4F", "League Gothic", Impact, sans-serif !important ; **/
+	font-family: "Linux Biolinum O" !important;
+	font-size: 110% !important ;
+}
+
+blockquote {
+	border: 3px solid lightgreen;
+	padding: 0.5em !important;
+	/** font-style: normal !important ; **/
+}
+
