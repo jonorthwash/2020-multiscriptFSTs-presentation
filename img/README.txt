@@ -1,1 +1,1 @@
-most of these logos are from Wikipedia
+most of the logos are from Wikipedia

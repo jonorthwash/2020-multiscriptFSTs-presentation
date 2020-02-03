@@ -202,14 +202,17 @@ gl::after {
 
 tag {
 	font-size: 0.8em !important;
-	pinkpink ;
 }
 tag::before {
 	content: "<";
+	-webkit-filter: brightness(70%); /* Safari 6.0 - 9.0 */
+	filter: brightness(70%);
 	color: silver !important ;
 }
 tag::after {
 	content: ">";
+	-webkit-filter: brightness(70%); /* Safari 6.0 - 9.0 */
+	filter: brightness(70%);
 	color: silver !important ;
 }
 
