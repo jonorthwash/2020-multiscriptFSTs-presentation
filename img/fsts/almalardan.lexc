@@ -1,0 +1,25 @@
+Multichar_Symbols
+
+%<n%>
+%<pl%>
+%<abl%>
+%<nom%>
+
+LEXICON Root
+
+Nouns ;
+
+LEXICON N-INFL
+
+%<n%>%<pl%>:лар CASES ;
+%<n%>: CASES ;
+
+LEXICON CASES
+
+%<abl%>:дан # ;
+%<nom%>: # ;
+
+LEXICON Nouns
+
+алма:алма N-INFL ;
+
