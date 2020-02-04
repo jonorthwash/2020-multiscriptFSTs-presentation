@@ -91,13 +91,11 @@ table tr.Vback th {
 table tr td {
 	color: white;
 	font-family: Arial !important;
-	font-size: 225% !important;
 }
 table tr th {
 	color: white;
 	text-align: center !important;
 	vertical-align: middle !important ;
-	font-size: 225% !important;
 }
 table tbody tr:last-child {
 	border-bottom: 1px solid white;
@@ -111,13 +109,13 @@ table.shrink tr {
 	height: 15px;
 }
 table.shrink tr td {
-	font-size: 170% !important;
+	font-size: 80% !important;
 	padding: -3px;
 	padding-right: 8pt;
 }
 
 table.shrink tr th {
-	font-size: 170% !important;
+	font-size: 80% !important;
 	padding: -3px;
 	padding-right: 8pt;
 	vertical-align: bottom ;
