@@ -27,6 +27,9 @@ li.sentence {
 	word-spacing: 4pt;
 	list-style-type: none;
 }
+li.shrink {
+	font-size: 75% !important;
+}
 p {
 	word-spacing: 4pt;
 }
@@ -66,6 +69,9 @@ bb {
 .highlight2 {
 	color: #eea;
 	text-shadow: 2px 2px lightgreen;
+}
+.highlight-box{
+	border: 3px solid yellow;
 }
 tr.greyedout td {
 	color: #666;
@@ -365,4 +371,11 @@ blockquote {
 	padding: 0.5em !important;
 	/** font-style: normal !important ; **/
 }
-
+float-left {
+	width: 47% !important;
+	float: left !important;
+}
+float-right {
+	width: 47% !important;
+	float: right !important;
+}

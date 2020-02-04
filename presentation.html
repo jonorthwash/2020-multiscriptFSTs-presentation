@@ -66,21 +66,38 @@
 
 				<section>
 					<h2>Overview</h2>
-					<div class="box">
-						We are working to <span class="highlight-cyan">augment morphological transducers</span> for <span class="highlight-cyan">7 Turkic languages</span> with support for <span class="highlight-cyan">multiple orthographies</span> and IPA transcription systems.
+					<div class="box float-left" style="width: 47%; float: left; ">
+						We are working to <span class="highlight-cyan">augment
+						<br /><br />
+						morphological transducers</span>
+						<br />
+						for <span class="highlight-cyan">7 Turkic languages</span>
+						<br /><br />
+						with support for
+						<br />
+						<span class="highlight-cyan">multiple orthographies</span>
+						<br />
+						and IPA transcription systems.
 					</div>
+					<div class="float-right" style="margin-top: 1em; padding-top: 10pt"> <!-- to make the top vertically align with the other box -->
 					<p>The next ~18 minutes:</p>
 					<ul>
 						<li><span class="highlight">What</span> does that even mean?</li>
 						<ul>
-							<li>Morphological transducers</li>
-							<li>Orthographies for Turkic languages</li>
+							<li class="shrink">Morphological transducers</li>
+							<li class="shrink">Orthographies for Turkic languages</li>
 						</ul>
 						<li>Motivation (<span class="highlight">why</span>)</li>
 						<li><span class="highlight">How</span> it works</li>
+						<ul>
+							<li class="shrink">basic approach</li>
+							<li class="shrink">challenges</li>
+							<li class="shrink">(some) solutions</li>
+						</ul>
 						<li>Evaluation</li>
 						<li>Future work</li>
 					</ul>
+					</div>
 				</section>
 
 				<section>
@@ -109,48 +126,68 @@
 						<tr>
 							<th>Kazakh</th>
 							<td><span class="highlight-green">official</span> in China</td>
-							<td>(still) <span class="highlight-green">official</span> in Kazakhstan</td>
+							<td><div class="highlight-box">(still) <span class="highlight-green">official</span> in Kazakhstan</div></td>
 							<td>(soon to be) <span class="highlight-green">official</span> in Kazakhstan</td>
 						</tr>
 						<tr>
 							<th>Uzbek</th>
 							<td><span class="highlight-cyan">used</span> in Afghanistan</td>
 							<td>previously <span class="highlight-green">official</span><!-- until 1993 -->, still widespread</td>
-							<td><span class="highlight-green">official</span> in Uzbekistan</td>
+							<td><div class="highlight-box"><span class="highlight-green">official</span> in Uzbekistan</div></td>
 						</tr>
 						<tr>
 							<th>Uyghur</th>
-							<td><span class="highlight-green">official</span> in China</td>
+							<td><div class="highlight-box"><span class="highlight-green">official</span> in China</div></td>
 							<td><span class="highlight-cyan">used</span> in Kazakhstan and Kyrgyzstan</td>
 							<td><span class="highlight-cyan">used</span> in diaspora</td>
 						</tr>
 						<tr>
 							<th>Kyrgyz</th>
 							<td><span class="highlight-green">official</span> in China</td>
-							<td><span class="highlight-green">official</span> in Kyrgyzstan</td>
-							<td>—</td>
+							<td><div class="highlight-box"><span class="highlight-green">official</span> in Kyrgyzstan</div></td>
+							/<td>—</td>
 						</tr>
 						<tr>
 							<th>Turkmen</th>
 							<td>—</td>
 							<td>previously <span class="highlight-green">official</span><!-- until 1993 -->, still widespread</td>
-							<td><span class="highlight-green">official</span> in Turkmenistan</td>
+							<td><div class="highlight-box"><span class="highlight-green">official</span> in Turkmenistan</div></td>
 						</tr>
 						<tr>
 							<th>Qaraqalpaq</th>
 							<td>—</td>
 							<td>previously <span class="highlight-green">official</span><!-- until 1994 -->, still widespread</td>
-							<td>≥3 recent (1994, 2006, 2016) <span class="highlight-green">official</span> versions</td>
+							<td>≥3 recent <span class="highlight-green">official</span> versions (1994, 2006, <span class="highlight-box">2016</span>)</td>
 						</tr>
 						<tr>
 							<th>Crimean Tatar</th>
 							<td>—</td>
 							<td><span class="highlight-green">official</span> in Republic of Crimea</td>
-							<td>widely <span class="highlight-cyan">used</span> since 1990s</td>
+							<td><div class="highlight-box">widely <span class="highlight-cyan">used</span> since 1990s</div></td>
 						</tr>
 					</table>
+					<br />
+					<p style="text-align: left;">
+						<span class="highlight-box">orthography of transducer implementation</span>
+					</p>
+				</section>
+
+				<section>
+					<h2>Adding orthographies: motivation</h2>
+					<ul>
+						<li>academic work on corpora can expand to include text from more sources</li>
+						<li>language technology that uses these transducers (MT systems, spell checkers) will be accessible to more communities <!-- that use the languages--></li>
+						<li>allows simple conversion between orthographies (potential to enable textual exchange between different communities using a single language with different scripts</li>
+						<li>transcribers (IPA support) useful for development of text-to-speech systems</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>Our approach: basic idea</h2>
 
 				</section>
+
 
 			</div>
 		</div>
