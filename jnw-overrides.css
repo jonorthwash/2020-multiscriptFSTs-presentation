@@ -391,3 +391,6 @@ blockquote {
 .large {
 	font-size: 150% !important ;
 }
+.caption {
+	font-size: 75% !important ;
+}

@@ -247,14 +247,28 @@
 
 				<section>
 					<h2>Our approach: basic idea</h2>
-					<img class="noframe" src="img/fsts/almalardan.svg"/><br />
-					[compose-intersect]
-					<img class="noframe" src="img/fsts/cyr-lat.svg"/><br />
-					[yields]
-					<img class="noframe" src="img/fsts/алмалардан.svg"/>
+					<p><img class="noframe" src="img/fsts/almalardan.svg"/><br />
+					<span class="caption">Cyrillic transducer</span></p>
+					<span class="highlight-cyan">[compose-intersect]</span><br/>
+					<p><img class="noframe" style="width: 70%" src="img/fsts/cyr-lat.svg"/><br />
+					<span class="caption">transliteration transducer</span></p>
+					<span class="highlight-cyan">[yields]</span><br/>
+					<p><img class="noframe" src="img/fsts/алмалардан.svg"/>
+					<span class="caption">Latin transducer (for generation)</span></p>
 				</section>
 
-
+				<section>
+					<h2>Our approach: basic idea</h2>
+					<p><img class="noframe" src="img/fsts/almalardan.svg"/><br />
+					<span class="caption">Cyrillic transducer</span></p>
+					<span class="highlight-cyan">[union]</span><br/>
+					<p><img class="noframe" src="img/fsts/алмалардан.svg"/><br />
+					<span class="caption">Latin transducer</span></p>
+					<span class="highlight-cyan">[yields]</span><br/>
+					<p><img class="noframe" src="img/fsts/almaалма.svg"/><br />
+					<span class="caption">Biscriptual transducer (for analysis)</span>
+					</p>
+				</section>
 
 
 				<section>
