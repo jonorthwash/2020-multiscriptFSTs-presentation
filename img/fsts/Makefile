@@ -16,4 +16,4 @@ all: almalardan.svg cyr-lat.svg алмалардан.svg
 	hfst-compose-intersect -1 $< -2 cyr-lat.hfst -o $@
 
 clean:
-	rm *.svg *.pdf *.dot *.hfst
+	rm *.svg *.hfst # *.pdf *.dot
