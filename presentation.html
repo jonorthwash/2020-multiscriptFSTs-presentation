@@ -66,7 +66,8 @@
 
 				<section>
 					<h2>Overview</h2>
-					<div class="box float-left" style="width: 47%; float: left; ">
+					<div class="float-left">
+					<div class="box">
 						We are working to <span class="highlight-cyan">augment
 						<br /><br />
 						morphological transducers</span>
@@ -79,7 +80,8 @@
 						<br />
 						and IPA transcription systems.
 					</div>
-					<div class="float-right" style="margin-top: 1em; padding-top: 10pt"> <!-- to make the top vertically align with the other box -->
+					</div>
+					<div class="float-right" style="margin-top: 1em;"> <!-- #padding-top: 10pt     | to make the top vertically align with the other box -->
 					<p>The next ~18 minutes:</p>
 					<ul>
 						<li><span class="highlight">What</span> does that even mean?</li>
@@ -104,13 +106,28 @@
 					<h2>Morphological transducers</h2>
 					<ul>
 						<li>Map between linguistic forms and morphological analyses:<br />
-							<span class="highlight-green">almalardan</span> ↔ <tt>alma<tag>n</tag><tag>pl</tag><tag>abl</tag></tt>, 
-							<span class="highlight-green">алмалардан</span> ↔ <tt>алма<tag>n</tag><tag>pl</tag><tag>abl</tag></tt>
+							<!-- span class="highlight-green">almalardan</span> ↔ <span class="code">alma<tag>n</tag><tag>pl</tag><tag>abl</tag></span>, 
+							<span class="highlight-green">алмалардан</span> ↔ <span class="code">алма<tag>n</tag><tag>pl</tag><tag>abl</tag></span -->
 						</li>
 						<li>A single transducer can perform <span class="highlight">analysis</span> and <span class="highlight">generation</span>.</li>
-						<li>In the form of a <span class="highlight">state machine</span> with two tapes, separated by ‘:’<br />
-						<img class="noframe" src="img/fsts/almalardan.svg"/></li>
-						<li>Efficient, useful for all sorts of <span class="highlight">morphological processing</span> tasks:<br/>MT, corpus processing, spell-checking / predictive text, etc.</li>
+							<div class="codeblock float-left">
+								<h3>Morphological analysis</h3>
+								алма → алма<tag>n</tag><tag>nom</tag><br />
+								алмадан → алма<tag>n</tag><tag>abl</tag><br />
+								алмалар → алма<tag>n</tag><tag>pl</tag><tag>nom</tag><br />
+								алмалардан → алма<tag>n</tag><tag>pl</tag><tag>abl</tag>
+							</div>
+							<div class="codeblock float-right">
+								<h3>Morphological generation</h3>
+								алма<tag>n</tag><tag>nom</tag> → алма<br />
+								алма<tag>n</tag><tag>abl</tag> → алмадан<br />
+								алма<tag>n</tag><tag>pl</tag><tag>nom</tag> → алмалар<br />
+								алма<tag>n</tag><tag>pl</tag><tag>abl</tag> → алмалардан
+							</div>
+						<li>In the form of a <span class="highlight">state machine</span> with two tapes, separated by ‘:’</li>
+						<img class="noframe" src="img/fsts/almalardan.svg"/>
+						<li>Extremely efficient for concatenative morphology</li>
+						<li>Useful for all sorts of <span class="highlight">morphological processing</span> tasks:<br/>MT, corpus searching, spell-checking, predictive text, ...</li>
 
 				</section>
 
@@ -149,7 +166,7 @@
 						</tr>
 						<tr>
 							<th>Turkmen</th>
-							<td>—</td>
+							<td><span class="highlight-cyan">used</span> in Iran and Afghanistan</td>
 							<td>previously <span class="highlight-green">official</span><!-- until 1993 -->, still widespread</td>
 							<td><div class="highlight-box"><span class="highlight-green">official</span> in Turkmenistan</div></td>
 						</tr>
@@ -182,12 +199,86 @@
 					</ul>
 				</section>
 
+				<section>
+					<h2>What we start with</h2>
+					<div class="codeblock float-left">
+						<h3>Cyrillic generation</h3>
+						алма<tag>n</tag><tag>nom</tag> → алма<br />
+						алма<tag>n</tag><tag>abl</tag> → алмадан<br />
+						алма<tag>n</tag><tag>pl</tag><tag>nom</tag> → алмалар<br />
+						алма<tag>n</tag><tag>pl</tag><tag>abl</tag> → алмалардан
+					</div>
+					<div class="codeblock float-right">
+						<h3>Cyrillic analysis</h3>
+						алма → алма<tag>n</tag><tag>nom</tag><br />
+						алмадан → алма<tag>n</tag><tag>abl</tag><br />
+						алмалар → алма<tag>n</tag><tag>pl</tag><tag>nom</tag><br />
+						алмалардан → алма<tag>n</tag><tag>pl</tag><tag>abl</tag>
+					</div>
+					<h2 style="margin-top: 1em;">What we want</h2>
+					<div class="codeblock float-left">
+						<h3>Cyrillic generation</h3>
+						алма<tag>n</tag><tag>nom</tag> → алма<br />
+						алма<tag>n</tag><tag>abl</tag> → алмадан<br />
+						алма<tag>n</tag><tag>pl</tag><tag>nom</tag> → алмалар<br />
+						алма<tag>n</tag><tag>pl</tag><tag>abl</tag> → алмалардан
+					</div>
+					<div class="codeblock float-right">
+						<h3>Bi-scriptual analysis</h3>
+						алма → алма<tag>n</tag><tag>nom</tag><br />
+						alma → алма<tag>n</tag><tag>nom</tag><br />
+						алмадан → алма<tag>n</tag><tag>abl</tag><br />
+						almadan → алма<tag>n</tag><tag>abl</tag><br />
+						алмалар → алма<tag>n</tag><tag>pl</tag><tag>nom</tag><br />
+						almalar → алма<tag>n</tag><tag>pl</tag><tag>nom</tag><br />
+						алмалардан → алма<tag>n</tag><tag>pl</tag><tag>abl</tag><br />
+						almalardan → алма<tag>n</tag><tag>pl</tag><tag>abl</tag>
+					</div>
+					<div class="codeblock float-left" style="margin-top: 3pt !important;">
+						<h3>Latin-script generation</h3>
+						алма<tag>n</tag><tag>nom</tag> → alma<br />
+						алма<tag>n</tag><tag>abl</tag> → almadan<br />
+						алма<tag>n</tag><tag>pl</tag><tag>nom</tag> → almalar<br />
+						алма<tag>n</tag><tag>pl</tag><tag>abl</tag> → almalardan
+					</div>
+					
+				</section>
 
 				<section>
 					<h2>Our approach: basic idea</h2>
-
+					<img class="noframe" src="img/fsts/almalardan.svg"/><br />
+					[compose-intersect]
+					<img class="noframe" src="img/fsts/cyr-lat.svg"/><br />
+					[yields]
+					<img class="noframe" src="img/fsts/алмалардан.svg"/>
 				</section>
 
+
+
+
+
+
+
+				<section>
+
+					<section>
+						<p class="large">Thank you!</p>
+						<p class="large">Рақмет! · Rahmet! · ‫راحمەت!‬ <lg>kaz</lg></p>
+						<p class="large">Ракмат! · ‫راقمات!‬ <lg>kir</lg></p>
+						<p class="large">‫رەھمەت!‬ · РәҺмәт! · Rehmet! <lg>uig</lg></p>
+						<p class="large">Rahmat! · Раҳмат! <lg>uzb</lg></p>
+						<p class="large">Sag boluň · Саг болуң<lg>tuk</lg></p>
+						<p class="large">Raxmet! · Рахмет!<lg>kaa</lg></p>
+						<p class="large">Сагъ олунгыз! · Sağ oluñız! <lg>crh</lg></p>
+					</section>
+					<section>
+						<h2>How morpho-phonology works</h2>
+					</section>
+
+					<section>
+						<h2>What <tt>lexc</tt> and <tt>twol</tt> look like</h2>
+					</section>
+				</section>
 
 			</div>
 		</div>
