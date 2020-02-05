@@ -1,0 +1,22 @@
+Multichar_Symbols
+
+%<n%>
+
+LEXICON Root
+
+Letters ;
+
+LEXICON Launching
+
+Letters ;
+# ;
+
+LEXICON Letters
+
+а:a Launching ;
+л:l Launching ;
+м:m Launching ;
+р:r Launching ;
+д:d Launching ;
+н:n Launching ;
+

@@ -1,4 +1,4 @@
-all: almalardan.svg
+all: almalardan.svg cyr-lat.svg алмалардан.svg
 
 %.svg: %.pdf
 	inkscape -z -f $< -l $@
@@ -11,6 +11,9 @@ all: almalardan.svg
 
 %.hfst: %.lexc
 	hfst-lexc $< > $@
+
+алмалардан.hfst: almalardan.hfst cyr-lat.hfst
+	hfst-compose-intersect -1 $< -2 cyr-lat.hfst -o $@
 
 clean:
 	rm *.svg *.pdf *.dot *.hfst
