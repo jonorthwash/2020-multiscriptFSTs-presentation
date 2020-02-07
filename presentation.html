@@ -190,6 +190,11 @@
 				</section>
 
 				<section>
+					<h2>Turkic transducers: status</h2>
+					<img src="img/all_lgs.svg" style="width: 50%" class="noframe"/>
+				</section>
+
+				<section>
 					<h2>Adding orthographies: motivation</h2>
 					<ul>
 						<li>academic work on corpora can expand to include text from more sources</li>
@@ -216,7 +221,7 @@
 						алмалар → алма<tag>n</tag><tag>pl</tag><tag>nom</tag><br />
 						алмалардан → алма<tag>n</tag><tag>pl</tag><tag>abl</tag>
 					</div>
-					<h3>What we want</h3>
+					<h3 style="margin-top: 4em;">What we want</h3>
 					<div class="codeblock float-left">
 						<h3>Cyrillic generation</h3>
 						алма<tag>n</tag><tag>nom</tag> → алма<br />
@@ -247,27 +252,39 @@
 
 				<section>
 					<h2>Our approach: basic idea</h2>
-					<p><img class="noframe" src="img/fsts/almalardan.svg"/><br />
-					<span class="caption">Cyrillic transducer</span></p>
-					<span class="highlight-cyan">[compose-intersect]</span><br/>
-					<p><img class="noframe" style="width: 70%" src="img/fsts/cyr-lat.svg"/><br />
-					<span class="caption">transliteration transducer</span></p>
-					<span class="highlight-cyan">[yields]</span><br/>
-					<p><img class="noframe" src="img/fsts/алмалардан.svg"/>
-					<span class="caption">Latin transducer (for generation)</span></p>
+					<div class="smallerbox">
+					<!-- div class="codeblock" style="margin-top: 3pt !important;" -->
+						<h3 class="caption">Cyrillic transducer</h3>
+						<img class="noframe" src="img/fsts/almalardan.svg"/>
+					</div>
+					<p class="highlight-cyan">[compose-intersect]</p>
+					<div class="smallerbox">
+						<h3 class="caption">transliteration transducer</h3>
+						<img class="noframe" style="width: 70%" src="img/fsts/cyr-lat.svg"/>
+					</div>
+					<span class="highlight-cyan">[yields]</span>
+					<div class="smallerbox">
+						<h3 class="caption">Latin-script transducer (for generation)</h3>
+						<img class="noframe" src="img/fsts/алмалардан.svg"/>
+					</p>
 				</section>
 
 				<section>
 					<h2>Our approach: basic idea</h2>
-					<p><img class="noframe" src="img/fsts/almalardan.svg"/><br />
-					<span class="caption">Cyrillic transducer</span></p>
-					<span class="highlight-cyan">[union]</span><br/>
-					<p><img class="noframe" src="img/fsts/алмалардан.svg"/><br />
-					<span class="caption">Latin transducer</span></p>
-					<span class="highlight-cyan">[yields]</span><br/>
-					<p><img class="noframe" src="img/fsts/almaалма.svg"/><br />
-					<span class="caption">Biscriptual transducer (for analysis)</span>
-					</p>
+					<div class="smallerbox">
+						<h3 class="caption">Cyrillic transducer</h3>
+						<img class="noframe" src="img/fsts/almalardan.svg"/>
+					</div>
+					<span class="highlight-cyan">[union]</span>
+					<div class="smallerbox">
+						<h3 class="caption">Latin-script transducer</h3>
+						<img class="noframe" src="img/fsts/алмалардан.svg"/>
+					</div>
+					<span class="highlight-cyan">[yields]</span>
+					<div class="smallerbox">
+						<h3 class="caption">Biscriptual transducer (for analysis)</h3>
+						<img class="noframe" src="img/fsts/almaалма.svg"/>
+					</div>
 				</section>
 
 

@@ -5,6 +5,9 @@ h2 {
 	font-family: "Trebuchet MS", "Attentica 4F", "League Gothic", Impact, sans-serif !important ;
 	font-size: 1.5em !important ;
 }
+h3 {
+	margin-bottom: 3pt !important;
+}
 .instructions {
 	text-align: right;
 	font-weight: bold !important ;
@@ -300,6 +303,25 @@ table.nolines tbody tr:last-child {
 	margin: 1em !important ;
 }
 
+.smallerbox {
+	border: 2pt solid lightgreen !important ;
+	padding-right: 10pt !important ;
+	padding-left: 10pt !important ;
+	padding-top: 10pt !important;
+	padding-bottom: 0pt !important;
+	margin-right: 1em !important ;
+	margin-left: 1em !important ;
+	margin-bottom: 0.5em !important;
+	margin-top: 0.5em !important;
+	background-color: rgba(80, 80, 80, 0.5) ; /* #555 ; */
+}
+
+.smallerbox img {
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	padding-top: 0pt;
+}
+
 .rot90 {
 	text-align: center !important ;
 	white-space: nowrap ;
@@ -351,7 +373,7 @@ tt {
 
 .codeblock {
 	border: 2px solid silver !important ;
-	background-color: #555 ;
+	background-color: rgba(80, 80, 80, 0.666) ; /* #555 ; */
 	padding: 0.5em !important;
 	text-align: left ;
 	font-family: "DejaVu Sans Mono", "Liberation Mono", monospace !important ;
@@ -368,6 +390,14 @@ tt {
 	text-shadow: none !important ;
 
 }
+.smallerbox h3 {
+	border-bottom: 1px solid silver !important ;
+	font-family: "DejaVu Sans", "Liberation Sans", sans-serif !important ;
+	text-transform: none !important ;
+	text-shadow: none !important ;
+	margin-bottom: 0pt;
+}
+
 
 .cyrillic {
 	/** font-family: "Trebuchet MS", "Attentica 4F", "League Gothic", Impact, sans-serif !important ; **/

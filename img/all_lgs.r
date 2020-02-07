@@ -53,7 +53,7 @@ make_graph <- function(name, xax=T, yax=T, leg=T, asp_ratio=0.8) {
 
 	p<-ggplot(data=lgs1_new)+ aes(fill=type,x=language,y=value/1000) +#, aes(fill=types))+
 		geom_bar(position="stack", stat="identity") +
-		labs(y="stems (×1000)",fill="category") +
+		labs(y="stems (×1000)",fill="category", x="language (ISO 639-3)") +
 		legTh +
 		theme(axis.text.x=element_text(size=rel(1.5)),axis.text.y=element_text(size=rel(1.5))) +
 		xaxTh + yaxTh
@@ -61,4 +61,4 @@ make_graph <- function(name, xax=T, yax=T, leg=T, asp_ratio=0.8) {
 	ggsave(paste(name, ".pdf", sep=""), device="pdf", height = height, width = height * aspect_ratio)
 }
 
-make_graph("all_lgs", F, T, T, 1)
+make_graph("all_lgs", T, T, T, 1)
