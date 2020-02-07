@@ -304,22 +304,22 @@ table.nolines tbody tr:last-child {
 }
 
 .smallerbox {
-	border: 2pt solid lightgreen !important ;
+	border: 2pt solid silver !important ;
 	padding-right: 10pt !important ;
 	padding-left: 10pt !important ;
 	padding-top: 10pt !important;
 	padding-bottom: 0pt !important;
-	margin-right: 1em !important ;
-	margin-left: 1em !important ;
-	margin-bottom: 0.5em !important;
+	margin-right: 0.25em !important ;
+	margin-left: 0.5em !important ;
+	margin-bottom: 0.25em !important;
 	margin-top: 0.5em !important;
 	background-color: rgba(80, 80, 80, 0.5) ; /* #555 ; */
 }
 
 .smallerbox img {
-	margin-top: 0pt;
-	margin-bottom: 0pt;
-	padding-top: 0pt;
+	margin-top: 0pt !important ;
+	margin-bottom: 0pt !important ;
+	padding-top: 0pt !important ;
 }
 
 .rot90 {
@@ -396,6 +396,7 @@ tt {
 	text-transform: none !important ;
 	text-shadow: none !important ;
 	margin-bottom: 0pt;
+	text-align: left ;
 }
 
 
