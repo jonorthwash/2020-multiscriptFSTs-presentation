@@ -33,6 +33,12 @@ li.sentence {
 li.shrink {
 	font-size: 75% !important;
 }
+p.shrink {
+	font-size: 75% !important;
+}
+span.shrink {
+	font-size: 75% !important;
+}
 p {
 	word-spacing: 4pt;
 }

@@ -132,6 +132,38 @@
 				</section>
 
 				<section>
+					<h2>Turkic transducers</h2>
+					<ul>
+						<li>Hand-crafted transducers for ~20 Turkic languages</li>
+						<li>Support nearly all productive morphology, large lexicon</li>
+						<li>Developed for use in MT systems, as spell checkers, and other lg. tech.</li>
+						<li>Entirely open source, available for any purpose</li>
+						<li class="shrink">Washington, Salimzianov, Tyers, Gökırmak, Ivanova, &amp; Kuyrukçu (to appear)</li>
+					</ul>
+					<div style="width: 33%; float:left;">
+						<img src="img/lgs1.svg"/>
+						<span class="shrink">
+							<span class="highlight-green">Production-level</span><br/>92%-98% coverage<br/>
+						</span>
+						<span style="font-size: 50%">(Tatar, <bb>Kazakh</bb>, Turkish, <bb>Kyrgyz</bb>, <bb>Crimean Tatar</bb>, Tuvan)</span>
+					</div>
+					<div style="width: 41.25%; float:left;">
+						<img src="img/lgs2.svg"/>
+						<span class="shrink">
+							<span class="highlight">Working</span><br/>88-93% coverage<br/>
+						</span>
+						<span style="font-size: 50%">(Bashqort, Chuvash, <bb>Uzbek</bb>, <bb>Qaraqalpaq</bb>, <bb>Uyghur</bb>, Sakha, Karachay-Balkar, Gagauz, Kumyk)</span>
+					</div>
+					<div style="width: 24.75%; float:left;">
+						<img src="img/lgs3.svg"/>
+						<span class="shrink">
+							<span class="highlight-red">Prototype</span><br/>&lt;80% coverage<br />
+						</span>
+						<span style="font-size: 50%">(Azerbaycani, <bb>Turkmen</bb>, Noghay, Khakas, Altay, Ottoman)</span>
+					</div>
+				</section>
+
+				<section>
 					<h2>Turkic orthographies</h2>
 					<table class="shrink">
 						<tr>
@@ -190,7 +222,7 @@
 				</section>
 
 				<section>
-					<h2>Turkic transducers: status</h2>
+					<h2>Turkic transducers</h2>
 					<img src="img/all_lgs.svg" style="width: 50%" class="noframe"/>
 				</section>
 
@@ -288,7 +320,7 @@
 				</section>
 
 				<section>
-					<h2>(Challenge 1) 1-letter to 2-letter mappings</h2>
+					<h2>Challenge: 1-letter to 2-letter mappings</h2>
 					<p>Example: Cyrillic ‹я› ↔ Latin-script ‹ya›</p>
 					<div class="codeblock float-left" style="margin-bottom: 0.5em; width: 25% !important;">
 						<h3>level 1 (<code>lexc</code>)</h3>
@@ -317,31 +349,83 @@
 				</section>
 
 				<section>
-					<h2>Challenge 2: Kazakh dayekshe</h2>
+					<h2>Challenge: Kazakh dayekshe</h2>
 					<div class="box">
 					dayekshe used at beginning of front-vowel words in Kazakh in which an unambiguously "front" letter is not present
 					<br />
-					e.g., <span class="ara">ٴتىلى</span> = tili (*tılı)<br/>
-					<span class="ara">تىلىندە</span> = tilinde
+					e.g., <span class="ara highlight-green">ٴتىلى</span> = tili (*tılı)<br/>
+					<span class="ara highlight-green">تىلىندە</span> = tilinde
 					</div>
 					<br />
 					Solution:
 					<ol>
 						<li>insert special symbol at the beginning of all words in level 1</li>
 						<li>delete it by default in level 2</li>
-						<li>restrict output as dayekshe to only words where a Cyrillic front-vowel letter that is unambiguous in backness in the Perso-Arabic script is used and no unambiguously front character is in the word</li>
+						<li>in level 2, restrict output as dayekshe to only words where a Cyrillic front-vowel letter that is unambiguous in backness in the Perso-Arabic script is used and no unambiguously front character is in the word</li>
 					</ol>
 				</section>
 
 				<section>
-					<h2>Challenge 3: Spelling variants</h2>
-
+					<h2>Challenge: Spelling variants</h2>
+					<div class="box">
+					Example: different encodings of Uzbek <span class="highlight-green">ʻ</span> (<span class="highlight-green">oʻ</span>, <span class="highlight-green">gʻ</span>, <span class="highlight-green">aʻ</span>)
+					<table class="shrink">
+						<tr>
+							<th>character</th>
+							<th>unicode</th>
+							<th>name</th>
+						</tr>
+						<tr>
+							<td>ʻ</td>
+							<td>U02BB</td>
+							<td>turned comma / ʻokina</td>
+						</tr>
+						<tr>
+							<td>ʼ</td>
+							<td>U02BC</td>
+							<td>letter apostrophe</td>
+						</tr>
+						<tr>
+							<td>‘</td>
+							<td>U2018</td>
+							<td>opening single quote</td>
+						</tr>
+						<tr>
+							<td>’</td>
+							<td>U2019</td>
+							<td>closing single quote</td>
+						</tr>
+						<tr>
+							<td>'</td>
+							<td>U0027</td>
+							<td>apostrophe</td>
+						</tr>
+						<tr>
+							<td>`</td>
+							<td>U0060</td>
+							<td>backtick</td>
+						</tr>
+					</table>
+					</div>
+					<br />
+					<!-- div class="box" -->
+						Solution:<br />
+						<ul>
+							<li>additional transducer compose-intersected with analyser</li>
+							<li>provides all variants on orthographic form side</li>
+						</ul>
 				</section>
 
 				<section>
-					<h2>Challenge 3</h2>
+					<h2>Challenge: competing mappings</h2>
+					<div class="box">
+						Example: Crimean Tatar ‹ё› vs. ‹оь›
+					</div>
 				</section>
 
+				<section>
+					<h2>Challenge: competing mappings</h2>
+				</section>
 
 				<section>
 					<h2>Evaluation: naïve coverage</h2>
@@ -397,7 +481,7 @@
 							<td><span class="highlight-box">91.93%¹</span></td>
 						</tr>
 					</table>
-					<p>partial and full bible translations (~200K-~700K words)<br/>
+					<p class="shrink">partial and full bible translations (~200K-~700K words)<br/>
 					¹ Wikipedia dump (comparable size)<br/>
 					² Quran translation (comparable size)</p>
 				</section>
