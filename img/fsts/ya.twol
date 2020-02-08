@@ -1,0 +1,16 @@
+Alphabet
+
+а:а й:й …:…
+! о:о у:у 
+
+;
+
+Sets
+
+Vowel = а ;
+
+Rules 
+
+"Remove suffix vowel with vowel-ending stem"
+а:0 <=> :Vowel %>:0 _ [ й ] ;
+

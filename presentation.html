@@ -287,6 +287,34 @@
 					</div>
 				</section>
 
+				<section>
+					<h2>(Challenge 1) 1-letter to 2-letter mappings</h2>
+					<p>Example: Cyrillic ‹я› ↔ Latin-script ‹ya›</p>
+					<div class="codeblock float-left" style="margin-bottom: 0.5em; width: 25% !important;">
+						<h3>level 1 (<code>lexc</code>)</h3>
+						я:йа<br />
+						й:й<br />
+						а:а<br />
+						…:…
+					</div>
+					<div class="float-left" style="width: 42% !important; text-align: center !important;">
+					<br />
+					<p class="highlight-cyan">[compose intersect]</p>
+					</div>
+					<div class="codeblock float-right" style="width: 25% !important;">
+						<h3>level 2 (<code>twol</code>)</h3>
+						й:y<br/>
+						а:a<br />
+						…:…<br />
+						&nbsp;
+					</div>
+					<p class="highlight-cyan" style="clear: both;">[yields]</p>
+					<div class="smallerbox" style="clear: both;">
+						<h3 class="caption">transliteration transducer</h3>
+						<img class="noframe" style="width: 70%" src="img/fsts/ya.svg"/>
+					</div>
+
+				</section>
 
 				<section>
 					<h2>Challenge 1: conditional forms</h2>
@@ -381,27 +409,27 @@
 						<!-- /tr -->
 						<tr>
 							<th class="highlight-red">transliteration error</th>
-							<td class="highlight-red"></td>
+							<td class="highlight-red">51</td>
 							<td class="highlight-red">7</td>
 						</tr>
 						<tr>
 							<th>form not in transducer</th>
-							<td>316</td>
+							<td>301</td>
 							<td>347</td>
 						</tr>
 						<tr>
 							<th>spelling difference</th>
-							<td>2</td>
+							<td>1</td>
 							<td>3</td>
 						</tr>
 						<tr>
 							<th>invalid form</th>
-							<td>75</td>
+							<td>33</td>
 							<td>3</td>
 						</tr>
 						<tr>
 							<th>Total</th>
-							<td>382 / 1200</td>
+							<td>386 / 1200</td>
 							<td>360 / 1200</td>
 						</tr>
 					</table>
