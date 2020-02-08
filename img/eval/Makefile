@@ -1,4 +1,4 @@
-all: results-kir_ARA
+all: results-kir_ARA results-crh_CYR
 
-results-kir_ARA: kir_ARA.csv
+results-%: %.csv
 	cut -d, -f3 $< | sort | uniq -c
