@@ -51,6 +51,9 @@ p {
 .ipa {
 	font-family: Arial !important;
 }
+.ara {
+	font-family: "Noto Naskh Arabic", FreeSerif !important ;
+}
 .highlight-red {
 	/* color: red; */
 	color: #e05b58;
