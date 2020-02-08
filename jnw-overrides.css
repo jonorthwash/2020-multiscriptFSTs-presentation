@@ -39,6 +39,9 @@ p.shrink {
 span.shrink {
 	font-size: 75% !important;
 }
+.codeblock.shrink {
+	font-size: 75% !important;
+}
 p {
 	word-spacing: 4pt;
 }
@@ -407,6 +410,16 @@ tt {
 	margin-bottom: 0pt;
 	text-align: left ;
 }
+.box h3 {
+	border-bottom: 1px solid silver !important ;
+	font-family: "DejaVu Sans", "Liberation Sans", sans-serif !important ;
+	text-transform: none !important ;
+	text-shadow: none !important ;
+	margin-bottom: 0pt;
+	text-align: left ;
+	font-size: 100% !important ;
+}
+
 
 
 .cyrillic {

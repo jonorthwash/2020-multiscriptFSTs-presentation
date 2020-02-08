@@ -217,7 +217,7 @@
 					</table>
 					<br />
 					<p style="text-align: left;">
-						<span class="highlight-box">orthography of transducer implementation</span>
+						<span class="highlight-box shrink">orthography of transducer implementation</span>
 					</p>
 				</section>
 
@@ -229,10 +229,10 @@
 				<section>
 					<h2>Adding orthographies: motivation</h2>
 					<ul>
-						<li>academic work on corpora can expand to include text from more sources</li>
-						<li>language technology that uses these transducers (MT systems, spell checkers) will be accessible to more communities <!-- that use the languages--></li>
-						<li>allows simple conversion between orthographies (potential to enable textual exchange between different communities using a single language with different scripts</li>
-						<li>transcribers (IPA support) useful for development of text-to-speech systems</li>
+						<li>academic work on corpora can expand to <bb>include text from more sources</bb></li>
+						<li>language technology that uses these transducers (MT systems, spell checkers) will be <bb>accessible to more communities</bb> <!-- that use the languages--></li>
+						<li>allows simple conversion between orthographies (potential to enable <bb>textual exchange between different communities</bb> using a single language with different scripts)</li>
+						<li>transcribers (IPA support) useful for <bb>development of text-to-speech systems</bb></li>
 					</ul>
 				</section>
 
@@ -368,7 +368,7 @@
 				<section>
 					<h2>Challenge: Spelling variants</h2>
 					<div class="box">
-					Example: different encodings of Uzbek <span class="highlight-green">ʻ</span> (<span class="highlight-green">oʻ</span>, <span class="highlight-green">gʻ</span>, <span class="highlight-green">aʻ</span>)
+					<h3>Example: different encodings of Uzbek <span class="highlight-green">ʻ</span> (<span class="highlight-green">oʻ</span>, <span class="highlight-green">gʻ</span>, <span class="highlight-green">aʻ</span>)</h3>
 					<table class="shrink">
 						<tr>
 							<th>character</th>
@@ -419,12 +419,64 @@
 				<section>
 					<h2>Challenge: competing mappings</h2>
 					<div class="box">
-						Example: Crimean Tatar ‹ё› vs. ‹оь›
+						<h3>Example: Crimean Tatar ‹ё› / ‹оCь›, ‹ю› / ‹уCь›</h3>
+						base transducer Latin, additional analyser + generator Cyrillic<br/>
+						<div class="float-left">
+						<span class="highlight-green">кёр</span> = <span class="highlight-green">kör</span> ‘blind’<br />
+						<span class="highlight-green">корь</span> = <span class="highlight-green">kör</span> ‘see’<br />
+						<span class="highlight-green">къой</span> = <span class="highlight-green">qoy</span> ‘put’<br />
+						</div>
+						<div class="float-right">
+						<span class="highlight-green">юз</span> = <span class="highlight-green">yüz</span> ‘hundred’<br />
+						<span class="highlight-green">юзь</span> = <span class="highlight-green">yüz</span> ‘face’<br />
+						<span class="highlight-green">ют</span> = <span class="highlight-green">yut</span> ‘swallow’
+						</div>
+						<br style="clear:both"/>
 					</div>
+					<br />
+					Solution:<br/>
+					<ul>
+						<li>Much of it sortable by level-2 rules, but cf. examples</li>
+						<li>Additional weighted transducer based on <i>n</i>-gram frequencies from corpus, compose-intersected with unaugmented transliteration transducer</li>
+						<li class="shrink">Tyers, Washington, Kavitskaya, Gökırmak, Howell, Berberova (2019)</li>
+					</ul>
 				</section>
 
 				<section>
 					<h2>Challenge: competing mappings</h2>
+					<div class="box">
+						<h3>Example: letter case in Uyghur Cyrillic</h3>
+						No letter case in base orthography<br />
+						<div class="float-right">
+							<span class="highlight-green ara">تىل</span> = <span class="highlight-green">тил</span><br />
+							<span class="highlight-green ara">تىل</span> = <span class="highlight-green">Тил</span> (sentence-initial)
+						</div>
+						<div class="float-right">
+							<span class="highlight-green ara">قازاقستان</span> = <span class="highlight-green">Қазақстан</span><br />
+							<span class="highlight-green ara">قازاقستانلىق</span> = <span class="highlight-green">қазақстанлиқ</span>
+						</div>
+						<br style="clear:both"/>
+					</div>
+					<br />
+					Solution:<br/>
+					<ul>
+						<li><span class="highlight">Analysis</span> is easy: union all upper-case letters with all lower-case equivalents in form side</li>
+						<li><span class="highlight">Generation</span>: <i>n</i>-gram model like for Crimean Tatar, intersected with analysis transducer?</li>
+						<li>...not yet implemented, probably a few sub-challenges we haven't thought of yet</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Challenge: stress marks</h2>
+					<ul>
+						<li>Stress <bb>morphologically conditioned</bb> in Turkic</li>
+						<li><bb>No morphological information</bb> at time of composition</li>
+						<li>Potential solution:
+						<ul>
+							<li><bb>add marks</bb> for "stress this syllable" and "stress previous syllable" to morphology</li>
+							<li>normally realise these marks as <code>0</code></li>
+							<li>compute stress mark location based on these symbols in transliteration layer-2</li>
+						</ul></li>
 				</section>
 
 				<section>
@@ -480,21 +532,29 @@
 							<td>91.27%</td>
 							<td><span class="highlight-box">91.93%¹</span></td>
 						</tr>
-					</table>
-					<p class="shrink">partial and full bible translations (~200K-~700K words)<br/>
+					</table>	
+					<p class="shrink">
+					<span class="highlight-box">orthography of transducer implementation</span><br />
+					partial and full bible translations (~200K-~700K words)<br/>
 					¹ Wikipedia dump (comparable size)<br/>
 					² Quran translation (comparable size)</p>
 				</section>
 
 				<section>
 					<h2>Qualitative evaluation</h2>
-					<p>Of incorrect forms in the corpus, how many are:</p>
+					<div class="box">
+					<div style="text-align: left;">Of incorrect forms in the corpus, how many are:</div>
 					<ul>
 						<li><b class="highlight-red">transliteration errors</b> — problems with our transliterators</li>
-						<li><b class="highlight">form not in transducer</b> — base transducer lacks form</li>
-						<li><b class="highlight">spelling difference</b> — word is spelled differently in the different orthographies</li>
-						<li><b class="highlight">invalid form</b> — invalid form in the language (e.g., typo, misspelling, bad tokenisation, word from another language)
-					<table>
+						<li><b>form not in transducer</b> — base transducer lacks form</li>
+						<ul>
+							<li class="shrink"><b class="highlight">correct form</b> — form is correct, but not in transducer (most commonly proper nouns)</li>
+							<li class="shrink"><b class="highlight">spelling difference</b> — form is spelled differently in the different orthographies (e.g., <span class="highlight-green ara" style="font-size: 150%">تئرواستاعى</span> = <span class="highlight-green" style="font-size: 110%">Троастагы</span><lg>kir</lg>)</li>
+							<li class="shrink"><b class="highlight">invalid form</b> — invalid form in the language (e.g., typo, misspelling, bad tokenisation, word from another language)</li>
+						</ul>
+					</ul>
+					</div>
+					<table class="shrink">
 						<tr>
 							<th></th>
 							<th>Crimean Tatar<br />Cyrillic</th>
@@ -513,17 +573,17 @@
 							<td class="highlight-red">7</td>
 						</tr>
 						<tr>
-							<th>form not in transducer</th>
+							<th class="highlight">correct form</th>
 							<td>301</td>
 							<td>347</td>
 						</tr>
 						<tr>
-							<th>spelling difference</th>
+							<th class="highlight">spelling difference</th>
 							<td>2</td>
 							<td>3</td>
 						</tr>
 						<tr>
-							<th>invalid form</th>
+							<th class="highlight">invalid form</th>
 							<td>32</td>
 							<td>3</td>
 						</tr>
@@ -538,6 +598,11 @@
 
 				<section>
 					<h2>Future work</h2>
+					<ul>
+						<li>Better ways to deal with different lexicon used in different orthographies</li>
+						<li>Increase accuracy by solving current and new challenges</li>
+						<li>Expand to more languages and orthographies</li>
+					</ul>
 				</section>
 
 				<section>
@@ -552,12 +617,56 @@
 						<p class="large">‫رەھمەت!‬ · Рәһмәт! · Rehmet! <lg>uig</lg></p>
 						<p class="large">Rahmat! · Раҳмат! <lg>uzb</lg></p>
 					</section>
-					<section>
+					<!-- section>
 						<h2>How morpho-phonology works</h2>
-					</section>
+					</section -->
 
 					<section>
 						<h2>What <tt>lexc</tt> and <tt>twol</tt> look like</h2>
+					<img class="noframe" src="img/simple transducer.svg"/>
+					<div class="codeblock shrink" style="width: 47%; float: left;">
+						LEXION Root<br />
+						<br />
+						Noun-Stems ;<br/>
+						<br />
+						LEXICON Noun-Number<br />
+						<br />
+						<tagc>sg</tagc>: # ;<br />
+						<tagc>pl</tagc>:<arch>e</arch>s # ;<br/>
+						<br />
+						LEXICON Noun-Infl<br />
+						<br />
+						<tagc>n</tagc>:%&gt; Noun-Number ;<br />
+						<br />
+						LEXICON Noun-Stems<br />
+						<br />
+						wolf:wol<arch>F</arch> Noun-Infl ;<br />
+						wolf:wolf Noun-Infl ;&nbsp;&nbsp;&nbsp;&nbsp;! Dir/LR<br />
+						dwarf:dwar<arch>F</arch> Noun-Infl ;<br />
+						dwarf:dwarf Noun-Infl ;&nbsp;&nbsp;! Dir/LR<br />
+						bird:bird Noun-Infl ;<br />
+					</div>
+					<div class="codeblock shrink" style="width: 47%; float: right;">
+						Alphabet<br />
+						<br />
+						A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br />
+						a b c d e f g h i j k l m n o p q r s t u v w x y z<br />
+						<br />
+						<arch>e</arch>:0<br />
+						<arch>F</arch>:f<br />
+						%&gt;:0&nbsp;&nbsp;&nbsp; ;<br />
+						<br />
+						Rules<br />
+						<br />
+						"<arch>e</arch> as e after sibilants etc."<br />
+						<arch>e</arch>:e &lt;=&gt; [ s | z ] %&gt;: _ ;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s h %&gt;: _ ;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <arch>F</arch>: %&gt;: _ ;<br />
+						<br />
+						"<arch>F</arch> as v before <arch>e</arch>"<br />
+						<arch>F</arch>:v &lt;=&gt; _ %&gt;: <arch>e</arch>: ;
+					</div>
+
 					</section>
 				</section>
 
